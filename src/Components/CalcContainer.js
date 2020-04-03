@@ -23,10 +23,14 @@ function CalcContainer() {
       setCurrentInput(currentInput + newDigit);
     }
   };
+
+  const clear = () => {
+    setCurrentInput('0');
+  };
   return (
     <div className="container">
       <Display currentInput={currentInput} />
-      <ButtonContainer numberInput={inputNumber} />
+      <ButtonContainer numberInput={inputNumber} clear={clear} />
     </div>
   );
 }

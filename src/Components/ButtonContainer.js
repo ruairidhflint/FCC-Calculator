@@ -6,7 +6,12 @@ function ButtonContainer(props) {
   return (
     <div className="button-container">
       <div className="button-row">
-        <Button id="clear" type="horizontal" value="Clear" />
+        <Button
+          id="clear"
+          input={props.clear}
+          type="horizontal"
+          value="Clear"
+        />
         <Button id="multiply" type="reg" value="X" />
         <Button id="divide" type="reg" value="%" />
       </div>
@@ -25,9 +30,24 @@ function ButtonContainer(props) {
       <div className="big-row">
         <div className="big-row-left">
           <div className="big-row-sub">
-            <Button id="one" input={props.numberInput} type="reg-big" value="1" />
-            <Button id="two" input={props.numberInput} type="reg-big" value="2" />
-            <Button id="three" input={props.numberInput} type="reg-big" value="3" />
+            <Button
+              id="one"
+              input={props.numberInput}
+              type="reg-big"
+              value="1"
+            />
+            <Button
+              id="two"
+              input={props.numberInput}
+              type="reg-big"
+              value="2"
+            />
+            <Button
+              id="three"
+              input={props.numberInput}
+              type="reg-big"
+              value="3"
+            />
           </div>
           <div className="big-row-sub">
             <Button
@@ -36,7 +56,12 @@ function ButtonContainer(props) {
               type="horizontal-big"
               value="0"
             />
-            <Button id="decimal" input={props.numberInput} type="reg-big" value="." />
+            <Button
+              id="decimal"
+              input={props.numberInput}
+              type="reg-big"
+              value="."
+            />
           </div>
         </div>
         <div className="big-row-right">
