@@ -7,8 +7,10 @@
 }
 
 .container {
-  width: 450px;
-  height: 550px;
-  border: 1px solid $gray;
+  width: 410px;
+  height: 560px;
   box-sizing: border-box;
+  padding: 1rem;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.012);
+
 }

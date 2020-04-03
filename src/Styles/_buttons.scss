@@ -1,9 +1,99 @@
-.button-container{
-    width: 100%;
-    height: 75%;
+.button-container {
+  width: 100%;
+  height: 77.5%;
+  color: $gray;
+  font-size: 2rem;
 
-    .row {
-        width: 100%;
-        height: 15%;
-    }
+  .big-row {
+    width: 100%;
+    height: 40%;
+    display: flex;
+  }
+
+  .big-row-left {
+    width: 75%;
+    height: 100%;
+  }
+
+  .big-row-right {
+    height: 100%;
+    width: 25%;
+  }
+
+  .big-row-sub {
+    width: 100%;
+    height: 50%;
+    display: flex;
+  }
+
+  .button-row {
+    width: 100%;
+    height: 20%;
+    display: flex;
+  }
+}
+
+.reg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 100%;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.012);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $lightGray;
+    color: $darkGray;
+    opacity: 0.1;
+    transition: all 0.4s ease-in-out;
+  }
+}
+
+.horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.012);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $lightGray;
+    color: $darkGray;
+    opacity: 0.1;
+    transition: all 0.4s ease-in-out;
+  }
+}
+
+.vertical {
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.012);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $lightGray;
+    color: $darkGray;
+    opacity: 0.1;
+    transition: all 0.4s ease-in-out;
+  }
+}
+
+.reg-big {
+  @extend .reg;
+  width: 33.3%;
+}
+
+.horizontal-big {
+  @extend .horizontal;
+  width: 66.6%;
 }
