@@ -3,6 +3,11 @@ import React, { useState } from 'react';
 import Display from './Display';
 import ButtonContainer from './ButtonContainer';
 
+import { create, all } from 'mathjs';
+
+const config = {};
+const math = create(all, config);
+
 function CalcContainer() {
   const [currentInput, setCurrentInput] = useState('0');
   const [currentSum, setCurrentSum] = useState('');
@@ -55,8 +60,12 @@ function CalcContainer() {
   };
 
   const evaluate = () => {
-      
-  }
+    //   const answer = math.evaluate(currentSum);
+
+      console.log(math.evaluate(currentSum + currentInput));
+
+    //   setCurrentInput(answer);
+  };
 
   return (
     <div className="container">
