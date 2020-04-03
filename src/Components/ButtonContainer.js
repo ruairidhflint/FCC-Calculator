@@ -12,7 +12,12 @@ function ButtonContainer(props) {
           type="horizontal"
           value="Clear"
         />
-        <Button id="multiply" input={props.operatorInput} type="reg" value="x" />
+        <Button
+          id="multiply"
+          input={props.operatorInput}
+          type="reg"
+          value="x"
+        />
         <Button id="divide" input={props.operatorInput} type="reg" value="%" />
       </div>
       <div className="button-row">
@@ -25,7 +30,12 @@ function ButtonContainer(props) {
         <Button id="four" input={props.numberInput} type="reg" value="4" />
         <Button id="five" input={props.numberInput} type="reg" value="5" />
         <Button id="six" input={props.numberInput} type="reg" value="6" />
-        <Button id="subtract"  input={props.operatorInput}type="reg" value="-" />
+        <Button
+          id="subtract"
+          input={props.operatorInput}
+          type="reg"
+          value="-"
+        />
       </div>
       <div className="big-row">
         <div className="big-row-left">
@@ -65,7 +75,12 @@ function ButtonContainer(props) {
           </div>
         </div>
         <div className="big-row-right">
-          <Button id="equals" type="vertical" value="=" />
+          <Button
+            id="equals"
+            input={props.evaluate}
+            type="vertical"
+            value="="
+          />
         </div>
       </div>
     </div>

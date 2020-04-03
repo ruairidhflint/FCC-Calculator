@@ -54,6 +54,10 @@ function CalcContainer() {
     setCurrentInput(newOperator);
   };
 
+  const evaluate = () => {
+      
+  }
+
   return (
     <div className="container">
       <Display currentInput={currentInput} currentSum={currentSum} />
@@ -61,6 +65,7 @@ function CalcContainer() {
         numberInput={inputNumber}
         clear={clear}
         operatorInput={inputOperator}
+        evaluate={evaluate}
       />
     </div>
   );
