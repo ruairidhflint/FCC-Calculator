@@ -14,25 +14,25 @@ function ButtonContainer(props) {
         />
         <Button
           id="multiply"
-          input={props.inputItem}
+          input={props.inputOperator}
           type="reg"
           value="*"
         />
-        <Button id="divide" input={props.inputItem} type="reg" value="/" />
+        <Button id="divide" input={props.inputOperator} type="reg" value="/" />
       </div>
       <div className="button-row">
-        <Button id="seven" input={props.inputItem} type="reg" value="7" />
-        <Button id="eight" input={props.inputItem} type="reg" value="8" />
-        <Button id="nine" input={props.inputItem} type="reg" value="9" />
-        <Button id="add" input={props.inputItem} type="reg" value="+" />
+        <Button id="seven" input={props.inputDigit} type="reg" value="7" />
+        <Button id="eight" input={props.inputDigit} type="reg" value="8" />
+        <Button id="nine" input={props.inputDigit} type="reg" value="9" />
+        <Button id="add" input={props.inputOperator} type="reg" value="+" />
       </div>
       <div className="button-row">
-        <Button id="four" input={props.inputItem} type="reg" value="4" />
-        <Button id="five" input={props.inputItem} type="reg" value="5" />
-        <Button id="six" input={props.inputItem} type="reg" value="6" />
+        <Button id="four" input={props.inputDigit} type="reg" value="4" />
+        <Button id="five" input={props.inputDigit} type="reg" value="5" />
+        <Button id="six" input={props.inputDigit} type="reg" value="6" />
         <Button
           id="subtract"
-          input={props.inputItem}
+          input={props.inputOperator}
           type="reg"
           value="-"
         />
@@ -42,19 +42,19 @@ function ButtonContainer(props) {
           <div className="big-row-sub">
             <Button
               id="one"
-              input={props.inputItem}
+              input={props.inputDigit}
               type="reg-big"
               value="1"
             />
             <Button
               id="two"
-              input={props.inputItem}
+              input={props.inputDigit}
               type="reg-big"
               value="2"
             />
             <Button
               id="three"
-              input={props.inputItem}
+              input={props.inputDigit}
               type="reg-big"
               value="3"
             />
@@ -62,13 +62,13 @@ function ButtonContainer(props) {
           <div className="big-row-sub">
             <Button
               id="zero"
-              input={props.inputItem}
+              input={props.inputDigit}
               type="horizontal-big"
               value="0"
             />
             <Button
               id="decimal"
-              input={props.inputItem}
+              input={props.inputDigit}
               type="reg-big"
               value="."
             />
