@@ -16,8 +16,8 @@ function CalcContainer() {
     if (
       currentInput === '+' ||
       currentInput === '-' ||
-      currentInput === 'x' ||
-      currentInput === '%'
+      currentInput === '*' ||
+      currentInput === '/'
     ) {
       setCurrentInput(newDigit);
     } else if (currentInput === '0' && newDigit === '.') {
@@ -46,8 +46,8 @@ function CalcContainer() {
     if (
       currentInput === '+' ||
       currentInput === '-' ||
-      currentInput === 'x' ||
-      currentInput === '%'
+      currentInput === '*' ||
+      currentInput === '/'
     ) {
       return null;
     }
@@ -60,11 +60,8 @@ function CalcContainer() {
   };
 
   const evaluate = () => {
-    //   const answer = math.evaluate(currentSum);
-
-      console.log(math.evaluate(currentSum + currentInput));
-
-    //   setCurrentInput(answer);
+      setCurrentInput(math.evaluate(currentSum + currentInput));
+      setCurrentSum(math.evaluate(currentSum + currentInput));
   };
 
   return (

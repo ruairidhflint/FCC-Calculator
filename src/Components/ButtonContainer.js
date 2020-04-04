@@ -16,9 +16,9 @@ function ButtonContainer(props) {
           id="multiply"
           input={props.operatorInput}
           type="reg"
-          value="x"
+          value="*"
         />
-        <Button id="divide" input={props.operatorInput} type="reg" value="%" />
+        <Button id="divide" input={props.operatorInput} type="reg" value="/" />
       </div>
       <div className="button-row">
         <Button id="seven" input={props.numberInput} type="reg" value="7" />
