@@ -13,7 +13,15 @@ function CalcContainer() {
   const [currentSum, setCurrentSum] = useState([]);
 
   const inputDigit = newDigit => {
-    console.log(newDigit);
+    if (currentInput === '+' || currentInput === '*' || currentInput === '/') {
+      if (newDigit === '.') {
+        setCurrentInput('0.');
+      } else {
+        setCurrentInput(newDigit);
+      }
+    }
+
+    
     if (currentInput === '0' && newDigit === '.') {
       setCurrentInput('0.');
     } else if (currentInput === '0') {
@@ -37,6 +45,28 @@ function CalcContainer() {
 
   const inputOperator = newOperator => {
     console.log(newOperator);
+    if (currentInput === '0' && newOperator === '-') {
+      setCurrentInput('-');
+      return;
+    }
+    if (currentSum.length === 0 && currentInput === '0') {
+      return;
+    }
+
+    if (
+      currentSum[currentSum.length - 1] === '+' ||
+      currentSum[currentSum.length - 1] === '/' ||
+      currentSum[currentSum.length - 1] === '*'
+    ) {
+      const replacement = currentSum.slice();
+      replacement[(replacement.length = 1)] = newOperator;
+      setCurrentSum(replacement);
+      setCurrentInput(newOperator);
+      return;
+    }
+
+    setCurrentSum([...currentSum, currentInput, newOperator]);
+    setCurrentInput(newOperator);
   };
 
   const clear = () => {
