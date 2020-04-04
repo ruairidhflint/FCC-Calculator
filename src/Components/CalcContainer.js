@@ -14,6 +14,25 @@ function CalcContainer() {
 
   const inputDigit = newDigit => {
     console.log(newDigit);
+    if (currentInput === '0' && newDigit === '.') {
+      setCurrentInput('0.');
+    } else if (currentInput === '0') {
+      if (newDigit === '0') {
+        return;
+      } else {
+        setCurrentInput(newDigit);
+      }
+    } else if (currentInput.length >= 8) {
+      return;
+    } else if (newDigit === '.') {
+      if (currentInput.indexOf('.') !== -1) {
+        return;
+      } else {
+        setCurrentInput(currentInput + newDigit);
+      }
+    } else {
+      setCurrentInput(currentInput + newDigit);
+    }
   };
 
   const inputOperator = newOperator => {
