@@ -62,6 +62,8 @@ function CalcContainer() {
   const evaluate = () => {
       setCurrentInput(math.evaluate(currentSum + currentInput));
       setCurrentSum(math.evaluate(currentSum + currentInput));
+    // setCurrentInput(eval(currentSum + currentInput));
+    //   setCurrentSum(eval(currentSum + currentInput));
   };
 
   return (
