@@ -78,3 +78,17 @@ function CalcContainer() {
 }
 
 export default CalcContainer;
+
+
+/* 
+What do I need to keep track of?
+
+- The current sum - should this be a string? An array? 
+- The current input. Is it a number? Does it start with a zero? Does it contain a decimal point?
+- If the current input is a operator, how do we deal with double presses? 
+- How do we deal with the minus button? 
+- We need to check that the last item in the current sum before evaluating to ensure the sum makes sense
+- When we are finished evaluating we need to have the anwsered stored ready for use with the next operation.
+- Clear must restart everything 
+
+*/
