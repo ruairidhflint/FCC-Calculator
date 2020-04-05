@@ -14,29 +14,19 @@ function CalcContainer() {
 
   const inputDigit = newDigit => {
     if (currentInput === '+' || currentInput === '*' || currentInput === '/') {
-      if (newDigit === '.') {
-        setCurrentInput('0.');
-      } else {
-        setCurrentInput(newDigit);
-      }
-    }
-
-    
-    if (currentInput === '0' && newDigit === '.') {
+      setCurrentInput(newDigit);
+    } 
+    else if (currentInput === '0' && newDigit === '.') {
       setCurrentInput('0.');
     } else if (currentInput === '0') {
-      if (newDigit === '0') {
-        return;
-      } else {
-        setCurrentInput(newDigit);
-      }
+      setCurrentInput(newDigit);
     } else if (currentInput.length >= 8) {
-      return;
+      return null;
     } else if (newDigit === '.') {
-      if (currentInput.indexOf('.') !== -1) {
-        return;
-      } else {
+      if (currentInput.indexOf('.') === -1) {
         setCurrentInput(currentInput + newDigit);
+      } else {
+        return null;
       }
     } else {
       setCurrentInput(currentInput + newDigit);
@@ -52,7 +42,6 @@ function CalcContainer() {
     if (currentSum.length === 0 && currentInput === '0') {
       return;
     }
-
     if (
       currentSum[currentSum.length - 1] === '+' ||
       currentSum[currentSum.length - 1] === '/' ||
