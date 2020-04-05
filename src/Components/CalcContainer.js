@@ -77,7 +77,16 @@ function CalcContainer() {
   };
 
   const evaluate = () => {
-    console.log(currentSum);
+    if (isNaN(currentInput)) {
+      const answer = eval(currentSum.slice(0, currentSum.length - 1).join(''));
+
+      setCurrentSum(eval([answer]));
+      setCurrentInput(eval(answer));
+    } else {
+      const answer = eval([...currentSum, currentInput].join(''));
+      setCurrentSum([answer]);
+      setCurrentInput(answer);
+    }
   };
 
   return (
