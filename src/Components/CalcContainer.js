@@ -103,3 +103,8 @@ function CalcContainer() {
 }
 
 export default CalcContainer;
+
+// Current problems 
+// 1.) No handling of negative values or the minus operator
+// 2.) Incorrect handling of the operator overriding 
+// 3.) Weirdness with operations continuing after evaluating
