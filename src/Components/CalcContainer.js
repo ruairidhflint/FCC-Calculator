@@ -78,12 +78,12 @@ function CalcContainer() {
 
   const evaluate = () => {
     if (isNaN(currentInput)) {
-      const answer = eval(currentSum.slice(0, currentSum.length - 1).join(''));
+      const answer = math.evaluate(currentSum.slice(0, currentSum.length - 1).join(''));
 
-      setCurrentSum(eval([answer]));
-      setCurrentInput(eval(answer));
+      setCurrentSum([answer]);
+      setCurrentInput(answer);
     } else {
-      const answer = eval([...currentSum, currentInput].join(''));
+      const answer = math.evaluate([...currentSum, currentInput].join(''));
       setCurrentSum([answer]);
       setCurrentInput(answer);
     }
