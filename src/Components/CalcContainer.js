@@ -78,7 +78,9 @@ function CalcContainer() {
 
   const evaluate = () => {
     if (isNaN(currentInput)) {
-      const answer = math.evaluate(currentSum.slice(0, currentSum.length - 1).join(''));
+      const answer = math.evaluate(
+        currentSum.slice(0, currentSum.length - 1).join(''),
+      );
 
       setCurrentSum([answer]);
       setCurrentInput(answer);
@@ -104,7 +106,7 @@ function CalcContainer() {
 
 export default CalcContainer;
 
-// Current problems 
+// Current problems
 // 1.) No handling of negative values or the minus operator
-// 2.) Incorrect handling of the operator overriding 
+// 2.) Incorrect handling of the operator overriding
 // 3.) Weirdness with operations continuing after evaluating
