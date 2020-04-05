@@ -16,6 +16,7 @@ function CalcContainer() {
     if (currentInput === '+' || currentInput === '*' || currentInput === '/') {
       setCurrentInput(newDigit);
     } else if (currentInput === '-') {
+      console.log(currentSum);
       if (currentSum[currentSum.length - 1] === '-') {
         setCurrentInput(currentInput + newDigit);
       } else {
@@ -39,7 +40,35 @@ function CalcContainer() {
   };
 
   const inputOperator = (newOperator) => {
-    console.log(newOperator);
+    if (newOperator === '+' || newOperator === '*' || newOperator === '/') {
+      if (currentInput === '0') {
+        return;
+      } else if (
+        currentInput === '+' ||
+        currentInput === '*' ||
+        currentInput === '/' ||
+        currentInput === '-'
+      ) {
+        setCurrentInput(newOperator);
+      } else {
+        setCurrentSum([...currentSum, currentInput, newOperator]);
+        setCurrentInput(newOperator);
+      }
+    } else if (newOperator === '-') {
+      if (
+        currentInput === '+' ||
+        currentInput === '*' ||
+        currentInput === '/' ||
+        currentInput === '0'
+      ) {
+        setCurrentInput(newOperator);
+      } else if (currentSum[currentSum.length - 1] === '-') {
+        setCurrentInput(newOperator);
+      } else {
+        setCurrentSum([...currentSum, currentInput, newOperator]);
+        setCurrentInput(newOperator);
+      }
+    }
   };
 
   const clear = () => {
