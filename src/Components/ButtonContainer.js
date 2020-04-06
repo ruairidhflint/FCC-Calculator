@@ -32,7 +32,7 @@ function ButtonContainer(props) {
         <Button id="six" input={props.inputDigit} type="reg" value="6" />
         <Button
           id="subtract"
-          input={props.inputOperator}
+          input={props.minusOperator}
           type="reg"
           value="-"
         />

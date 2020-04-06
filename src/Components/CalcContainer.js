@@ -12,22 +12,28 @@ function CalcContainer() {
   const [currentInput, setCurrentInput] = useState('0');
   const [currentSum, setCurrentSum] = useState([]);
   const [settings, setSettings] = useState({
-    negative: false,
+    minus: false,
     evaluated: false,
   });
 
   const inputDigit = (newDigit) => {
-    setSettings({...settings, evaluated: false})
-    if (currentInput === '+' || currentInput === '*' || currentInput === '/') {
+    setSettings({ ...settings, evaluated: false });
+    if (
+      currentInput === '+' ||
+      currentInput === '*' ||
+      currentInput === '/' ||
+      currentInput === '-'
+    ) {
       setCurrentInput(newDigit);
-    } else if (currentInput === '-') {
-      console.log(currentSum);
-      if (currentSum[currentSum.length - 1] === '-') {
-        setCurrentInput(currentInput + newDigit);
-      } else {
-        setCurrentInput(newDigit);
-      }
-    } else if (currentInput === '0' && newDigit === '.') {
+    }
+    // else if (currentInput === '-') {
+    //   if (currentSum[currentSum.length - 1] === '-') {
+    //     setCurrentInput(currentInput + newDigit);
+    //   } else {
+    //     setCurrentInput(newDigit);
+    //   }
+    // } x
+    else if (currentInput === '0' && newDigit === '.') {
       setCurrentInput('0.');
     } else if (currentInput === '0') {
       setCurrentInput(newDigit);
@@ -83,13 +89,27 @@ function CalcContainer() {
     // }
   };
 
+  const minusOperator = (negative) => {
+    console.log(negative);
+    // What are the potential options?
+    // 1.) We are trying to set a negative number
+    if (currentInput === '0') {
+      setCurrentInput('-');
+    } else if (!isNaN(currentInput)) {
+      setSettings({ ...settings, minus: true });
+      setCurrentSum([...currentSum, currentInput, negative]);
+      setCurrentInput(negative);
+    }
+    // 2.) We are trying to minus a number
+  };
+
   const clear = () => {
     setCurrentInput('0');
     setCurrentSum([]);
   };
 
   const evaluate = () => {
-    setSettings({...settings, evaluated: true});
+    setSettings({ ...settings, evaluated: true });
     if (isNaN(currentInput)) {
       const answer = math.evaluate(
         currentSum.slice(0, currentSum.length - 1).join(''),
@@ -114,6 +134,7 @@ function CalcContainer() {
       <ButtonContainer
         inputDigit={inputDigit}
         inputOperator={inputOperator}
+        minusOperator={minusOperator}
         clear={clear}
         evaluate={evaluate}
       />
@@ -125,5 +146,4 @@ export default CalcContainer;
 
 // Current problems
 // 1.) No handling of negative values or the minus operator
-// 2.) Rounding of  result is off.
-// 3.) Weirdness with operations continuing after evaluating
+// Responsiveness.
