@@ -25,15 +25,7 @@ function CalcContainer() {
       currentInput === '-'
     ) {
       setCurrentInput(newDigit);
-    }
-    // else if (currentInput === '-') {
-    //   if (currentSum[currentSum.length - 1] === '-') {
-    //     setCurrentInput(currentInput + newDigit);
-    //   } else {
-    //     setCurrentInput(newDigit);
-    //   }
-    // } x
-    else if (currentInput === '0' && newDigit === '.') {
+    } else if (currentInput === '0' && newDigit === '.') {
       setCurrentInput('0.');
     } else if (currentInput === '0') {
       setCurrentInput(newDigit);
@@ -51,7 +43,6 @@ function CalcContainer() {
   };
 
   const inputOperator = (newOperator) => {
-    // if (newOperator === '+' || newOperator === '*' || newOperator === '/') {
     if (currentInput === '0') {
       return;
     } else if (
@@ -71,22 +62,6 @@ function CalcContainer() {
         setCurrentInput(newOperator);
       }
     }
-    // }
-    // } else if (newOperator === '-') {
-    //   if (
-    //     currentInput === '+' ||
-    //     currentInput === '*' ||
-    //     currentInput === '/' ||
-    //     currentInput === '0'
-    //   ) {
-    //     setCurrentInput(newOperator);
-    //   } else if (currentSum[currentSum.length - 1] === '-') {
-    //     setCurrentInput(newOperator);
-    //   } else {
-    //     setCurrentSum([...currentSum, currentInput, newOperator]);
-    //     setCurrentInput(newOperator);
-    //   }
-    // }
   };
 
   const minusOperator = (negative) => {
