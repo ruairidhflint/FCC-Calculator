@@ -13,7 +13,7 @@ function CalcContainer() {
   const [currentSum, setCurrentSum] = useState([]);
   const [settings, setSettings] = useState({
     negative: false,
-    evalueted: false,
+    evaluated: false,
   });
 
   const inputDigit = (newDigit) => {
