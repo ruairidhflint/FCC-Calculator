@@ -17,6 +17,7 @@ function CalcContainer() {
   });
 
   const inputDigit = (newDigit) => {
+    setSettings({...settings, evaluated: false})
     if (currentInput === '+' || currentInput === '*' || currentInput === '/') {
       setCurrentInput(newDigit);
     } else if (currentInput === '-') {
@@ -56,8 +57,13 @@ function CalcContainer() {
       setCurrentSum([currentSumDupe, newOperator]);
       setCurrentInput(newOperator);
     } else {
-      setCurrentSum([...currentSum, currentInput, newOperator]);
-      setCurrentInput(newOperator);
+      if (!settings.evaluated) {
+        setCurrentSum([...currentSum, currentInput, newOperator]);
+        setCurrentInput(newOperator);
+      } else {
+        setCurrentSum([...currentSum, newOperator]);
+        setCurrentInput(newOperator);
+      }
     }
     // }
     // } else if (newOperator === '-') {
@@ -83,6 +89,7 @@ function CalcContainer() {
   };
 
   const evaluate = () => {
+    setSettings({...settings, evaluated: true});
     if (isNaN(currentInput)) {
       const answer = math.evaluate(
         currentSum.slice(0, currentSum.length - 1).join(''),
