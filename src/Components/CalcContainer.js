@@ -11,6 +11,7 @@ const math = create(all, config);
 function CalcContainer() {
   const [currentInput, setCurrentInput] = useState('0');
   const [currentSum, setCurrentSum] = useState([]);
+  const [settings, setSettings] = useState({negative: false, evalueted: false});
 
   const inputDigit = (newDigit) => {
     if (currentInput === '+' || currentInput === '*' || currentInput === '/') {
@@ -109,5 +110,6 @@ export default CalcContainer;
 
 // Current problems
 // 1.) No handling of negative values or the minus operator
-// 2.) Incorrect handling of the operator overriding
+
+
 // 3.) Weirdness with operations continuing after evaluating
