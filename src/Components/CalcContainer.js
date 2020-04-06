@@ -11,7 +11,10 @@ const math = create(all, config);
 function CalcContainer() {
   const [currentInput, setCurrentInput] = useState('0');
   const [currentSum, setCurrentSum] = useState([]);
-  const [settings, setSettings] = useState({negative: false, evalueted: false});
+  const [settings, setSettings] = useState({
+    negative: false,
+    evalueted: false,
+  });
 
   const inputDigit = (newDigit) => {
     if (currentInput === '+' || currentInput === '*' || currentInput === '/') {
@@ -41,36 +44,37 @@ function CalcContainer() {
   };
 
   const inputOperator = (newOperator) => {
-    if (newOperator === '+' || newOperator === '*' || newOperator === '/') {
-      if (currentInput === '0') {
-        return;
-      } else if (
-        currentInput === '+' ||
-        currentInput === '*' ||
-        currentInput === '/'
-      ) {
-        const currentSumDupe = currentSum.slice(0, currentSum.length - 1);
-        setCurrentSum([currentSumDupe, newOperator]);
-        setCurrentInput(newOperator);
-      } else {
-        setCurrentSum([...currentSum, currentInput, newOperator]);
-        setCurrentInput(newOperator);
-      }
-    } else if (newOperator === '-') {
-      if (
-        currentInput === '+' ||
-        currentInput === '*' ||
-        currentInput === '/' ||
-        currentInput === '0'
-      ) {
-        setCurrentInput(newOperator);
-      } else if (currentSum[currentSum.length - 1] === '-') {
-        setCurrentInput(newOperator);
-      } else {
-        setCurrentSum([...currentSum, currentInput, newOperator]);
-        setCurrentInput(newOperator);
-      }
+    // if (newOperator === '+' || newOperator === '*' || newOperator === '/') {
+    if (currentInput === '0') {
+      return;
+    } else if (
+      currentInput === '+' ||
+      currentInput === '*' ||
+      currentInput === '/'
+    ) {
+      const currentSumDupe = currentSum.slice(0, currentSum.length - 1);
+      setCurrentSum([currentSumDupe, newOperator]);
+      setCurrentInput(newOperator);
+    } else {
+      setCurrentSum([...currentSum, currentInput, newOperator]);
+      setCurrentInput(newOperator);
     }
+    // }
+    // } else if (newOperator === '-') {
+    //   if (
+    //     currentInput === '+' ||
+    //     currentInput === '*' ||
+    //     currentInput === '/' ||
+    //     currentInput === '0'
+    //   ) {
+    //     setCurrentInput(newOperator);
+    //   } else if (currentSum[currentSum.length - 1] === '-') {
+    //     setCurrentInput(newOperator);
+    //   } else {
+    //     setCurrentSum([...currentSum, currentInput, newOperator]);
+    //     setCurrentInput(newOperator);
+    //   }
+    // }
   };
 
   const clear = () => {
@@ -83,13 +87,17 @@ function CalcContainer() {
       const answer = math.evaluate(
         currentSum.slice(0, currentSum.length - 1).join(''),
       );
+      const corrected =
+        answer % 1 === 0 ? answer : parseFloat(answer).toFixed(4);
 
-      setCurrentSum([answer]);
-      setCurrentInput(answer);
+      setCurrentSum([corrected]);
+      setCurrentInput(corrected);
     } else {
       const answer = math.evaluate([...currentSum, currentInput].join(''));
-      setCurrentSum([answer]);
-      setCurrentInput(answer);
+      const corrected =
+        answer % 1 === 0 ? answer : parseFloat(answer).toFixed(4);
+      setCurrentSum([corrected]);
+      setCurrentInput(corrected);
     }
   };
 
@@ -110,6 +118,5 @@ export default CalcContainer;
 
 // Current problems
 // 1.) No handling of negative values or the minus operator
-
-
+// 2.) Rounding of  result is off.
 // 3.) Weirdness with operations continuing after evaluating
