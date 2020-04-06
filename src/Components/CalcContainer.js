@@ -46,9 +46,10 @@ function CalcContainer() {
       } else if (
         currentInput === '+' ||
         currentInput === '*' ||
-        currentInput === '/' ||
-        currentInput === '-'
+        currentInput === '/'
       ) {
+        const currentSumDupe = currentSum.slice(0, currentSum.length - 1);
+        setCurrentSum([currentSumDupe, newOperator]);
         setCurrentInput(newOperator);
       } else {
         setCurrentSum([...currentSum, currentInput, newOperator]);
