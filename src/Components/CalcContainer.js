@@ -19,7 +19,6 @@ function CalcContainer() {
   const inputDigit = (newDigit) => {
     setSettings({ ...settings, evaluated: false });
     if (currentInput === '-' && !settings.minus) {
-      console.log('here?');
       setCurrentInput(newDigit);
     } else if (
       currentInput === '+' ||
@@ -42,6 +41,8 @@ function CalcContainer() {
     } else {
       setCurrentInput(currentInput + newDigit);
     }
+
+    setSettings({...settings, minus: false});
   };
 
   const inputOperator = (newOperator) => {
@@ -67,17 +68,18 @@ function CalcContainer() {
   };
 
   const minusOperator = (negative) => {
-    // What are the potential options?
-    // 1.) We are trying to set a negative number
     if (currentInput === '0') {
-      setCurrentInput('-');
-    } else if (!isNaN(currentInput)) {
-      // setSettings({ ...settings, minus: true });
+      setCurrentInput(negative);
+    }
+    else if (!isNaN(currentInput)) {
       setCurrentSum([...currentSum, currentInput, negative]);
       setCurrentInput(negative);
-    } else if (settings.minus) {
-      setCurrentInput('-');
+    } else if (currentInput === negative) {
+      setCurrentSum([...currentSum]);
+      setCurrentInput(negative);
+      setSettings({ ...settings, minus: true });
     }
+
     // 2.) We are trying to minus a number
   };
 
