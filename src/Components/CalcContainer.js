@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { create, all } from 'mathjs';
 
 import Display from './Display';
 import ButtonContainer from './ButtonContainer';
 
-import { create, all } from 'mathjs';
 
 const config = {};
 const math = create(all, config);
@@ -80,7 +80,6 @@ function CalcContainer() {
       setSettings({ ...settings, minus: true });
     }
 
-    // 2.) We are trying to minus a number
   };
 
   const clear = () => {
