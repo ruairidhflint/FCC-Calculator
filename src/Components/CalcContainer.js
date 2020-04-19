@@ -4,7 +4,6 @@ import { create, all } from 'mathjs';
 import Display from './Display';
 import ButtonContainer from './ButtonContainer';
 
-
 const config = {};
 const math = create(all, config);
 
@@ -42,7 +41,7 @@ function CalcContainer() {
       setCurrentInput(currentInput + newDigit);
     }
 
-    setSettings({...settings, minus: false});
+    setSettings({ ...settings, minus: false });
   };
 
   const inputOperator = (newOperator) => {
@@ -70,8 +69,7 @@ function CalcContainer() {
   const minusOperator = (negative) => {
     if (currentInput === '0') {
       setCurrentInput(negative);
-    }
-    else if (!isNaN(currentInput)) {
+    } else if (!isNaN(currentInput)) {
       setCurrentSum([...currentSum, currentInput, negative]);
       setCurrentInput(negative);
     } else if (currentInput === negative) {
@@ -79,7 +77,6 @@ function CalcContainer() {
       setCurrentInput(negative);
       setSettings({ ...settings, minus: true });
     }
-
   };
 
   const clear = () => {
